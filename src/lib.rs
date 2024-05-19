@@ -202,6 +202,7 @@ pub enum FcsError {
 ///
 /// This struct wraps a file handle and provides methods to open the file and read
 /// metadata and parameter data from it.
+#[derive(Debug)]
 pub struct FcsFile {
     inner: File,
 }
@@ -319,7 +320,7 @@ mod tests {
 
     #[test]
     fn test_create_dataframe() {
-        let column_titles = vec!["col1".to_string(), "col2".to_string()];
+        let column_titles = vec!["FSC-H".to_string(), "APC-A".to_string()];
         let data = vec![vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
         let df = data::create_dataframe(&column_titles, &data).unwrap();
         assert_eq!(df.shape(), (3, 2), "DataFrame shape mismatch");

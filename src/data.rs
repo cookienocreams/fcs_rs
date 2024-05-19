@@ -7,11 +7,11 @@ use crate::{FcsError, HashMap, File, BufReader, SeekFrom};
 use polars::prelude::*;
 
 /// Store the names of the parameters in the FCS file.
+#[derive(Debug)]
 pub struct ColumnNames {
     keys_vec: Vec<String>,
 }
 
-#[derive(Debug)]
 /// A structure to represent a flow cytometry sample.
 ///
 /// # Fields
@@ -20,6 +20,7 @@ pub struct ColumnNames {
 /// and the value is a vector of measurements.
 /// * `parameters` - A HashMap containing the parameters of the flow cytometry experiment. 
 /// The key is the parameter name, and the value is the parameter value.
+#[derive(Debug)]
 pub struct FlowSample {
     pub data: DataFrame,
     pub parameters: HashMap<String, String>,
