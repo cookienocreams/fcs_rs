@@ -6,6 +6,7 @@ license = "MIT"
 description = "Basic tool for manipulating and analyzing Flow Cytometry Standard (FCS) files."
 repository = "https://github.com/cookienocreams/no_bs_fcs"
 readme = "README.md"
+keywords = ["FCS", "flow cytometry", ".fcs"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

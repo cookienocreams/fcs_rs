@@ -25,7 +25,11 @@
 //! Then, include the library in your project:
 //!
 //! ```rust
-//! use no_bs_fcs::{FcsFile, FlowSample, FcsError, read_header, read_metadata, parse_data, read_events, create_dataframe};
+//! use no_bs_fcs::{
+//!     FcsFile, 
+//!     FlowSample, 
+//!     FcsError
+//! };
 //! ```
 //!
 //! # Examples
@@ -35,7 +39,7 @@
 //! ```rust
 //! use no_bs_fcs::FcsFile;
 //!
-//! let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
+//! let fcs_file = FcsFile::open("path/to/file.fcs")?;
 //! ```
 //!
 //! ## Reading an FCS File
@@ -43,8 +47,8 @@
 //! ```rust
 //! use no_bs_fcs::{FcsFile, FcsError};
 //!
-//! let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-//! let flow_sample = fcs_file.read().unwrap();
+//! let fcs_file = FcsFile::open("path/to/file.fcs")?;
+//! let flow_sample = fcs_file.read()?;
 //! println!("{:?}", flow_sample.data);
 //! println!("{:?}", flow_sample.parameters);
 //! ```
@@ -54,8 +58,8 @@
 //! ```rust
 //! use no_bs_fcs::FcsFile;
 //!
-//! let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-//! let flow_sample = fcs_file.read().unwrap();
+//! let fcs_file = FcsFile::open("path/to/file.fcs")?;
+//! let flow_sample = fcs_file.read()?;
 //! let column_names = flow_sample.get_dataframe_columns();
 //! println!("{:?}", column_names);
 //! ```
@@ -65,9 +69,10 @@
 //! ```rust
 //! use no_bs_fcs::FcsFile;
 //!
-//! let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-//! let mut flow_sample = fcs_file.read().unwrap();
-//! flow_sample.arcsinh_transform(5.0, &vec!["FSC".to_string(), "SSC".to_string()]).unwrap();
+//! let fcs_file = FcsFile::open("path/to/file.fcs")?;
+//! let mut flow_sample = fcs_file.read()?;
+//! let column_names = flow_sample.get_dataframe_columns();
+//! flow_sample.arcsinh_transform(5.0, &column_names)?;
 //! println!("{:?}", flow_sample.data);
 //! ```
 //!
@@ -79,7 +84,7 @@
 //!
 //! let column_titles = vec!["FSC-W".to_string(), "FITC-A".to_string()];
 //! let data = vec![vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
-//! let df = create_dataframe(&column_titles, &data).unwrap();
+//! let df = create_dataframe(&column_titles, &data)?;
 //! println!("{:?}", df);
 //! ```
 //!
@@ -96,7 +101,8 @@
 //!
 //! # Error Handling
 //!
-//! The `FcsError` enum defines various errors that can occur while processing FCS files, including I/O errors, invalid headers, unsupported versions, metadata issues, missing required keywords, and invalid data segments.
+//! The `FcsError` enum defines various errors that can occur while processing FCS files, including I/O errors, 
+//! invalid headers, unsupported versions, metadata issues, missing required keywords, and invalid data segments.
 
 use std::collections::HashMap;
 use std::io::{self, Read, Seek};

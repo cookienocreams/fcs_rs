@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["read_metadata","validate_text"]};
