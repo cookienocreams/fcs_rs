@@ -1,5 +1,5 @@
 [![Rust](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml)
-[![Continuous integration](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yaml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yaml)
+[![CI](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml)
 
 ## Module Overview: `no_bs_fcs`
 
@@ -136,7 +136,3 @@ println!("{:?}", df);
 ### Conclusion
 
 The `no_bs_fcs` module provides a robust framework for handling FCS files. Users can easily and efficiently work with flow cytometry data.
-
----
-
-This overview provides a comprehensive look at your module, highlighting its features, usage, and testing. Feel free to adjust the paths, example data, and other details to better match your actual implementation and use cases.
