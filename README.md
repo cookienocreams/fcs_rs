@@ -46,6 +46,7 @@ To read an FCS file and extract metadata and data segments:
 use no_bs_fcs::{FcsFile, FcsError};
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
+// Read the FCS file and return metadata and parameter data in a `FlowSample` struct
 let fcs_data = fcs_file.read()?;
 println!("{:?}", fcs_data.data); // Prints FCS data in a dataframe
 shape: (5_555, 10)
