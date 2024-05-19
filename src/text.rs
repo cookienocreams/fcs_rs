@@ -65,7 +65,7 @@ pub fn read_metadata(reader: &mut BufReader<&File>) -> Result<HashMap<String, St
     let kv_pairs = text.split(delimiter);
 
     for kv in kv_pairs {
-        if kv.starts_with("$") {
+        if kv.starts_with('$') {
             keyword = kv.to_string();
             value.clear();
         } else {
@@ -127,7 +127,7 @@ pub fn validate_text(text: &HashMap<String, String>) -> Result<(), FcsError> {
 
     for &param in &REQUIRED_KEYWORDS[12..] {
         for i in 1..=n_params {
-            if text.get(&param.replace("n", &i.to_string())).is_none() {
+            if text.get(&param.replace('n', &i.to_string())).is_none() {
                 return Err(FcsError::InvalidText(param.to_string()));
             }
         }

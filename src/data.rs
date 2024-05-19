@@ -53,7 +53,7 @@ FlowSample:
         let n_params: u32 = self.parameters.get("$PAR").unwrap_or(&"0".to_string()).parse().unwrap_or(0);
         writeln!(f, "\n    Labels: ")?;
         for i in 1..=n_params {
-            if let Some(_) = self.parameters.get(&format!("$P{}S", i)) {
+            if self.parameters.get(&format!("$P{}S", i)).is_some() {
                 writeln!(f, "        {} ({})", 
                     self.parameters.get(&format!("$P{}N", i)).unwrap(), 
                     self.parameters.get(&format!("$P{}S", i)).unwrap()
@@ -114,7 +114,7 @@ impl FlowSample {
     /// # Returns
     ///
     /// A Result indicating success or an I/O error.
-    pub fn arcsinh_transform(&mut self, cofactor: f64, channels: &Vec<String>) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn arcsinh_transform(&mut self, cofactor: f64, channels: &[String]) -> Result<(), Box<dyn std::error::Error>> {
         fn arcsinh(x: f64, cofactor: f64) -> f64 {
             (x / cofactor).ln() + ((x / cofactor).powi(2) + 1.0).sqrt().ln()
         }
@@ -395,7 +395,7 @@ pub fn read_events<B: byteorder::ByteOrder>(
 /// let df = create_dataframe(&column_titles, &data).unwrap();
 /// println!("{:?}", df);
 /// ```
-pub fn create_dataframe(column_titles: &Vec<String>, data: &Vec<Vec<f64>>) -> Result<DataFrame, PolarsError> {
+pub fn create_dataframe(column_titles: &[String], data: &[Vec<f64>]) -> Result<DataFrame, PolarsError> {
     // Ensure the number of columns matches the number of column titles
     if column_titles.len() != data.len() {
         return Err(PolarsError::ShapeMismatch(
