@@ -115,7 +115,7 @@ let fcs_data = fcs_file.read().unwrap();
 // Get the column names
 let column_names = flow_sample.get_dataframe_columns();
     
-// Perform arcsinh transformation of data
+// Perform arcsinh transformation of data with scaling factor of 5.0
 flow_sample.arcsinh_transform(5.0, &column_names).unwrap();
 println!("{:?}", fcs_data.data); // Prints transformed FCS data
 shape: (5_555, 10)
