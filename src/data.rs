@@ -16,8 +16,10 @@ pub struct ColumnNames {
 ///
 /// # Fields
 ///
-/// * `data` - A HashMap containing the data for each channel. The key is the channel name, and the value is a vector of measurements.
-/// * `parameters` - A HashMap containing the parameters of the flow cytometry experiment. The key is the parameter name, and the value is the parameter value.
+/// * `data` - A HashMap containing the data for each channel. The key is the channel name, 
+/// and the value is a vector of measurements.
+/// * `parameters` - A HashMap containing the parameters of the flow cytometry experiment. 
+/// The key is the parameter name, and the value is the parameter value.
 pub struct FlowSample {
     pub data: DataFrame,
     pub parameters: HashMap<String, String>,
@@ -26,7 +28,8 @@ pub struct FlowSample {
 impl fmt::Display for FlowSample {
     /// Formats the `FlowSample` for display.
     ///
-    /// The display includes general information about the sample such as machine type, run times, and volume, as well as details about the measurement axes.
+    /// The display includes general information about the sample such as machine type, 
+    /// run times, and volume, as well as details about the measurement axes.
     ///
     /// # Arguments
     ///
@@ -114,7 +117,11 @@ impl FlowSample {
     /// # Returns
     ///
     /// A Result indicating success or an I/O error.
-    pub fn arcsinh_transform(&mut self, cofactor: f64, channels: &[String]) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn arcsinh_transform(
+        &mut self, 
+        cofactor: f64, 
+        channels: &[String]
+    ) -> Result<(), Box<dyn std::error::Error>> {
         fn arcsinh(x: f64, cofactor: f64) -> f64 {
             (x / cofactor).ln() + ((x / cofactor).powi(2) + 1.0).sqrt().ln()
         }
@@ -390,7 +397,7 @@ pub fn read_events<B: byteorder::ByteOrder>(
 /// use no_bs_fcs::data::create_dataframe;
 /// use polars::prelude::*;
 /// 
-/// let column_titles = vec!["col1".to_string(), "col2".to_string()];
+/// let column_titles = vec!["APC-A".to_string(), "FSC-W".to_string()];
 /// let data = vec![vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
 /// let df = create_dataframe(&column_titles, &data).unwrap();
 /// println!("{:?}", df);
