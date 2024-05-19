@@ -1,10 +1,10 @@
 [package]
-name = "no_bs_fcs"
+name = "fcs_rs"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Basic tool for manipulating and analyzing Flow Cytometry Standard (FCS) files."
-repository = "https://github.com/cookienocreams/no_bs_fcs"
+repository = "https://github.com/cookienocreams/fcs_rs"
 readme = "README.md"
 keywords = ["FCS", "flow cytometry", ".fcs"]
 

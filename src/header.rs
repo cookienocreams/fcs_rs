@@ -45,7 +45,7 @@ pub struct Header {
 ///
 /// ```
 /// use std::convert::TryFrom;
-/// use no_bs_fcs::header::Header;
+/// use fcs_rs::header::Header;
 ///
 /// let header_str = "FCS3.0         256    1545       0       0       0       0";
 /// let header = Header::try_from(header_str).unwrap();
@@ -152,8 +152,8 @@ fn zero_when_empty(err: ParseIntError) -> Result<usize, ParseIntError> {
 /// use std::fs::File;
 /// use std::io::BufReader;
 /// use std::io::Seek;
-/// use no_bs_fcs::header::read_header;
-/// use no_bs_fcs::{FcsError, VALID_FCS_VERSIONS};
+/// use fcs_rs::header::read_header;
+/// use fcs_rs::{FcsError, VALID_FCS_VERSIONS};
 /// 
 /// let file = File::open("./examples/20200624 LEGENDplex_20200808 CMVMRC5 NY3 pDC.813537.fcs").unwrap();
 /// let mut reader = BufReader::new(&file);

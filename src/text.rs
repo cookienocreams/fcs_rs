@@ -34,12 +34,9 @@ use crate::{
 /// # Examples
 ///
 /// ```
-/// use std::io::SeekFrom;
+/// use fcs_rs::text::read_metadata;
 /// use std::fs::File;
 /// use std::io::BufReader;
-/// use no_bs_fcs::text::{read_metadata, validate_text};
-/// use no_bs_fcs::header::read_header;
-/// use no_bs_fcs::{FcsError, REQUIRED_KEYWORDS};
 /// 
 /// let file = File::open("./examples/20200624 LEGENDplex_20200808 CMVMRC5 NY3 pDC.813537.fcs").unwrap();
 /// let mut reader = BufReader::new(&file);
@@ -100,12 +97,12 @@ pub fn read_metadata(reader: &mut BufReader<&File>) -> Result<HashMap<String, St
 ///
 /// ```
 /// use std::collections::HashMap;
-/// use no_bs_fcs::text::{read_metadata, validate_text};
-/// use no_bs_fcs::REQUIRED_KEYWORDS;
+/// use fcs_rs::text::{read_metadata, validate_text};
+/// use fcs_rs::REQUIRED_KEYWORDS;
 /// use std::fs::File;
 /// use std::io::BufReader;
-/// use no_bs_fcs::FcsError;
-/// use no_bs_fcs::header::read_header;
+/// use fcs_rs::FcsError;
+/// use fcs_rs::header::read_header;
 /// use std::io::SeekFrom;
 /// 
 /// let file = File::open("./examples/20200624 LEGENDplex_20200808 CMVMRC5 NY3 pDC.813537.fcs").unwrap();

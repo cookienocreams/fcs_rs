@@ -20,13 +20,13 @@
 //!
 //! ```toml
 //! [dependencies]
-//! no_bs_fcs = "0.1.0"
+//! fcs_rs = "0.1.0"
 //! ```
 //!
 //! Then, include the library in your project:
 //!
 //! ```rust
-//! use no_bs_fcs::{
+//! use fcs_rs::{
 //!     FcsFile, 
 //!     FlowSample, 
 //!     FcsError
@@ -38,7 +38,7 @@
 //! ## Opening an FCS File
 //!
 //! ```rust
-//! use no_bs_fcs::FcsFile;
+//! use fcs_rs::FcsFile;
 //!
 //! let fcs_file = FcsFile::open("path/to/file.fcs")?;
 //! ```
@@ -46,7 +46,7 @@
 //! ## Reading an FCS File
 //!
 //! ```rust
-//! use no_bs_fcs::{FcsFile, FcsError};
+//! use fcs_rs::{FcsFile, FcsError};
 //!
 //! let fcs_file = FcsFile::open("path/to/file.fcs")?;
 //! let flow_sample = fcs_file.read()?;
@@ -57,7 +57,7 @@
 //! ## Extracting Column Names
 //!
 //! ```rust
-//! use no_bs_fcs::FcsFile;
+//! use fcs_rs::FcsFile;
 //!
 //! let fcs_file = FcsFile::open("path/to/file.fcs")?;
 //! let flow_sample = fcs_file.read()?;
@@ -68,7 +68,7 @@
 //! ## Applying Arcsinh Transformation
 //!
 //! ```rust
-//! use no_bs_fcs::FcsFile;
+//! use fcs_rs::FcsFile;
 //!
 //! let fcs_file = FcsFile::open("path/to/file.fcs")?;
 //! let mut flow_sample = fcs_file.read()?;
@@ -80,7 +80,7 @@
 //! ## Creating a DataFrame
 //!
 //! ```rust
-//! use no_bs_fcs::data::create_dataframe;
+//! use fcs_rs::data::create_dataframe;
 //! use polars::prelude::*;
 //!
 //! let column_titles = vec!["FSC-W".to_string(), "FITC-A".to_string()];
@@ -222,7 +222,7 @@ impl FcsFile {
     /// # Examples
     ///
     /// ```
-    /// use no_bs_fcs::FcsFile;
+    /// use fcs_rs::FcsFile;
     /// 
     /// let fcs_file = FcsFile::open("./examples/20200624 LEGENDplex_20200808 CMVMRC5 NY3 pDC.813537.fcs").unwrap();
     /// ```
@@ -245,7 +245,7 @@ impl FcsFile {
     /// # Examples
     ///
     /// ```
-    /// use no_bs_fcs::FcsFile;
+    /// use fcs_rs::FcsFile;
     /// use std::fs::File;
     /// 
     /// let file = File::open("path/to/file.fcs").unwrap();
@@ -265,10 +265,10 @@ impl FcsFile {
     /// # Examples
     ///
     /// ```
-    /// use no_bs_fcs::{FcsFile, FcsError, REQUIRED_KEYWORDS};
-    /// use no_bs_fcs::header::read_header;
-    /// use no_bs_fcs::data::{FlowSample, parse_data, read_events};
-    /// use no_bs_fcs::text::{read_metadata, validate_text};
+    /// use fcs_rs::{FcsFile, FcsError, REQUIRED_KEYWORDS};
+    /// use fcs_rs::header::read_header;
+    /// use fcs_rs::data::{FlowSample, parse_data, read_events};
+    /// use fcs_rs::text::{read_metadata, validate_text};
     /// use std::collections::HashMap;
     /// use std::fs::File;
     /// use std::io::BufReader;
