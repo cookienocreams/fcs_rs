@@ -1,9 +1,9 @@
-[![Rust](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml)
-[![CI](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml)
+[![Rust](https://github.com/cookienocreams/fcs_rs/actions/workflows/rust.yml/badge.svg)](https://github.com/cookienocreams/fcs_rs/actions/workflows/rust.yml)
+[![CI](https://github.com/cookienocreams/fcs_rs/actions/workflows/CI.yml/badge.svg)](https://github.com/cookienocreams/fcs_rs/actions/workflows/CI.yml)
 
-## Module Overview: `no_bs_fcs`
+## Module Overview: `fcs_rs`
 
-The `no_bs_fcs` module provides a basic set of tools for manipulating and analyzing Flow Cytometry Standard (FCS) files. It includes methods for reading FCS files, extracting metadata, and processing data segments using arcshinh transformation, all while handling various potential errors gracefully.
+The `fcs_rs` module provides a basic set of tools for manipulating and analyzing Flow Cytometry Standard (FCS) files. It includes methods for reading FCS files, extracting metadata, and processing data segments using arcshinh transformation, all while handling various potential errors gracefully.
 
 Supports FCS versions FCS3.0 and FCS3.1.
 
@@ -16,7 +16,7 @@ Supports FCS versions FCS3.0 and FCS3.1.
 
 ### Modules
 
-The `no_bs_fcs` module is divided into several sub-modules, each focusing on specific aspects of FCS file handling:
+The `fcs_rs` module is divided into several sub-modules, each focusing on specific aspects of FCS file handling:
 
 - **data**: Contains structures and functions for handling the data segments of FCS files, including parsing and transformation operations.
 - **header**: Includes methods for reading and validating the header segments of FCS files.
@@ -33,7 +33,7 @@ The `FcsError` enum defines various errors that can occur while processing FCS f
 To open an FCS file, use the `FcsFile::open` method:
 
 ```rust
-use no_bs_fcs::FcsFile;
+use fcs_rs::FcsFile;
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
 ```
@@ -43,7 +43,7 @@ let fcs_file = FcsFile::open("path/to/file.fcs")?;
 To read an FCS file and extract metadata and data segments:
 
 ```rust
-use no_bs_fcs::{FcsFile, FcsError};
+use fcs_rs::{FcsFile, FcsError};
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
 // Read the FCS file and return metadata and parameter data in a `FlowSample` struct
@@ -69,7 +69,7 @@ shape: (5_555, 10)
 
 View information relating to the sample.
 ```rust
-use no_bs_fcs::{FcsFile, FcsError};
+use fcs_rs::{FcsFile, FcsError};
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
 let fcs_data = fcs_file.read()?;
@@ -108,7 +108,7 @@ FlowSample:
 To read an FCS file and extract metadata and data segments:
 
 ```rust
-use no_bs_fcs::{FcsFile, FcsError};
+use fcs_rs::{FcsFile, FcsError};
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
 let fcs_data = fcs_file.read()?;
@@ -142,7 +142,7 @@ shape: (5_555, 10)
 To create a DataFrame from column titles and corresponding data vectors:
 
 ```rust
-use no_bs_fcs::data::create_dataframe;
+use fcs_rs::data::create_dataframe;
 use polars::prelude::*;
 
 let column_titles = vec!["APC-A".to_string(), "FSC-W".to_string()];
@@ -153,4 +153,4 @@ println!("{:?}", df);
 
 ### Conclusion
 
-The `no_bs_fcs` module provides a robust framework for handling FCS files. Users can easily and efficiently work with flow cytometry data.
+The `fcs_rs` module provides a robust framework for handling FCS files. Users can easily and efficiently work with flow cytometry data.
