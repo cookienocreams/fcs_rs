@@ -35,7 +35,7 @@ To open an FCS file, use the `FcsFile::open` method:
 ```rust
 use no_bs_fcs::FcsFile;
 
-let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
+let fcs_file = FcsFile::open("path/to/file.fcs")?;
 ```
 
 #### Reading an FCS File
@@ -45,8 +45,8 @@ To read an FCS file and extract metadata and data segments:
 ```rust
 use no_bs_fcs::{FcsFile, FcsError};
 
-let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-let fcs_data = fcs_file.read().unwrap();
+let fcs_file = FcsFile::open("path/to/file.fcs")?;
+let fcs_data = fcs_file.read()?;
 println!("{:?}", fcs_data.data); // Prints FCS data in a dataframe
 shape: (5_555, 10)
 ┌───────────┬──────────┬──────────┬───────────┬───┬──────────┬──────────┬──────────┐
@@ -70,8 +70,8 @@ View information relating to the sample.
 ```rust
 use no_bs_fcs::{FcsFile, FcsError};
 
-let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-let fcs_data = fcs_file.read().unwrap();
+let fcs_file = FcsFile::open("path/to/file.fcs")?;
+let fcs_data = fcs_file.read()?;
 println!("{}", fcs_data.data); // Prints sample information
 FlowSample:
     Machine: 1234567 Attune NxT Acoustic Focusing Cytometer (Lasers: BRVY)
@@ -109,14 +109,14 @@ To read an FCS file and extract metadata and data segments:
 ```rust
 use no_bs_fcs::{FcsFile, FcsError};
 
-let fcs_file = FcsFile::open("path/to/file.fcs").unwrap();
-let fcs_data = fcs_file.read().unwrap();
+let fcs_file = FcsFile::open("path/to/file.fcs")?;
+let fcs_data = fcs_file.read()?;
 
 // Get the column names
 let column_names = flow_sample.get_dataframe_columns();
     
 // Perform arcsinh transformation of data with scaling factor of 5.0
-flow_sample.arcsinh_transform(5.0, &column_names).unwrap();
+flow_sample.arcsinh_transform(5.0, &column_names)?;
 println!("{:?}", fcs_data.data); // Prints transformed FCS data
 shape: (5_555, 10)
 ┌───────────┬───────────┬───────────┬───────────┬───┬───────────┬───────────┐
@@ -146,7 +146,7 @@ use polars::prelude::*;
 
 let column_titles = vec!["APC-A".to_string(), "FSC-W".to_string()];
 let data = vec![vec![1.0, 2.0, 3.0], vec![4.0, 5.0, 6.0]];
-let df = create_dataframe(&column_titles, &data).unwrap();
+let df = create_dataframe(&column_titles, &data)?;
 println!("{:?}", df);
 ```
 
