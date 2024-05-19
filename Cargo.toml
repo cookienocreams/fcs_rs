@@ -2,6 +2,10 @@
 name = "no_bs_fcs"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "Basic tool for manipulating and analyzing Flow Cytometry Standard (FCS) files."
+repository = "https://github.com/cookienocreams/no_bs_fcs"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
