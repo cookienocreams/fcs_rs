@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["REQUIRED_KEYWORDS","VALID_FCS_VERSIONS"],"enum":["FcsError"],"mod":["data","header","text"],"struct":["FcsFile"]};
