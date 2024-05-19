@@ -151,11 +151,11 @@ impl FcsFile {
         Self { inner: file }
     }
 
-    /// Read the FCS file and return metadata and parameter data in an `FcsData` struct.
+    /// Read the FCS file and return metadata and parameter data in an `FlowSample` struct.
     ///
     /// # Returns
     ///
-    /// A `Result` containing an `FcsData` struct if the file is successfully read,
+    /// A `Result` containing an `FlowSample` struct if the file is successfully read,
     /// or an `FcsError` if there is an issue reading the metadata or parameter data.
     ///
     /// # Examples
