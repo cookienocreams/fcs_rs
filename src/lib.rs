@@ -10,7 +10,8 @@
 //!
 //! - **File Handling**: Open and read FCS files in a structured and efficient manner.
 //! - **Metadata Extraction**: Extract and validate metadata from FCS files, ensuring all required information is available.
-//! - **Data Processing**: Parse data segments from FCS files and convert them into usable formats such as data frames.
+//! - **Data Processing**: Parse data segments from FCS files and convert them into usable formats such as dataframes.
+//! - **Data Transformation**: Can transform raw data using arcsinh.
 //! - **Error Handling**: Comprehensive error handling to deal with various issues that may arise during file operations.
 //!
 //! # Getting Started
