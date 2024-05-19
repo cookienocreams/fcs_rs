@@ -1,5 +1,5 @@
 [![Rust](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/rust.yml)
-[![Continuous integration](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yaml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yaml)
+[![CI](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml/badge.svg)](https://github.com/cookienocreams/no_bs_fcs/actions/workflows/CI.yml)
 
 ## Module Overview: `no_bs_fcs`
 
