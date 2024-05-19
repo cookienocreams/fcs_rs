@@ -1,5 +1,6 @@
 [![Rust](https://github.com/cookienocreams/fcs_rs/actions/workflows/rust.yml/badge.svg)](https://github.com/cookienocreams/fcs_rs/actions/workflows/rust.yml)
 [![CI](https://github.com/cookienocreams/fcs_rs/actions/workflows/CI.yml/badge.svg)](https://github.com/cookienocreams/fcs_rs/actions/workflows/CI.yml)
+[![coverage](https://github.com/cookienocreams/fcs_rs/blob/main/badges/flat.svg)](https://github.com/cookienocreams/fcs_rs/blob/main/index.html)
 
 ## Module Overview: `fcs_rs`
 
