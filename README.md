@@ -72,7 +72,7 @@ use no_bs_fcs::{FcsFile, FcsError};
 
 let fcs_file = FcsFile::open("path/to/file.fcs")?;
 let fcs_data = fcs_file.read()?;
-println!("{}", fcs_data.data); // Prints sample information
+println!("{}", fcs_data); // Prints sample information
 FlowSample:
     Machine: 1234567 Attune NxT Acoustic Focusing Cytometer (Lasers: BRVY)
     Begin Time:
