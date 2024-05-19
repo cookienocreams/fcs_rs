@@ -53,7 +53,7 @@ FlowSample:
         let n_params: u32 = self.parameters.get("$PAR").unwrap_or(&"0".to_string()).parse().unwrap_or(0);
         writeln!(f, "\n    Labels: ")?;
         for i in 1..=n_params {
-            if self.parameters.get(&format!("$P{}S", i)).is_some() {
+            if self.parameters.contains_key(&format!("$P{}S", i)) {
                 writeln!(f, "        {} ({})", 
                     self.parameters.get(&format!("$P{}N", i)).unwrap(), 
                     self.parameters.get(&format!("$P{}S", i)).unwrap()
